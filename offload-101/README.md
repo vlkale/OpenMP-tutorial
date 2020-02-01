@@ -11,6 +11,8 @@
  2. Expressing parallelism
  3. Mapping data
 
+ bsub -W 2:00 -nnodes 1 -P TRN006 -Is $SHELL
+
  ## Offloading code to the device and getting device info
 
  make 01_target_construct
@@ -58,3 +60,4 @@
  # unstructured data mapping
  make 03_map_unstructured_function
  jsrun -n 1 -a 1 -c 1 -g 1 ./03_map_unstructured_function
+ jsrun -n 1 -a 1 -c 1 -g 1 nvprof --print-gpu-trace ./03_map_unstructured_function
