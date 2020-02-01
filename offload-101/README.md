@@ -14,13 +14,13 @@
  bsub -W 2:00 -nnodes 1 -P TRN006 -Is $SHELL
 
  ## Offloading code to the device and getting device info
-
+ ```
  make 01_target_construct
  jsrun -n 1 -a 1 -c 1 -g 1 ./01_target_construct
  jsrun -n 1 -a 1 -c 1 -g 6 ./01_target_construct
  module load cuda
  jsrun -n 1 -a 1 -c 1 -g 1 nvprof ./01_target_construct
-
+ ```
  ## Expressing parallelism 
 
  Artificial example showing a loop parallelized with
@@ -29,13 +29,16 @@
  to show that the iterations of the loop are split
  up over the threads.
 
+ ```
  make 02_target_teams_parallel
  jsrun -n 1 -a 1 -c 1 -g 1 ./02_target_teams_parallel
  # modify to num_teams() thread_limit()
  jsrun -n 1 -a 1 -c 1 -g 1 ./02_target_teams_parallel
+ ```
 
  ## Mapping data
 
+ ```
  make 03_map
  # initially just `parallel for`, but then want to run on device,
  # so change to `target teams distribute parallel for`
@@ -61,3 +64,4 @@
  make 03_map_unstructured_function
  jsrun -n 1 -a 1 -c 1 -g 1 ./03_map_unstructured_function
  jsrun -n 1 -a 1 -c 1 -g 1 nvprof --print-gpu-trace ./03_map_unstructured_function
+ ```
