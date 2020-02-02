@@ -22,7 +22,7 @@
  bash-4.2$ ./run_vector_add_cpu.sh 
  + OMP_PROC_BIND=spread
  + OMP_NUM_THREADS=42
- + jsrun --nrs 1 --tasks_per_rs 1 --cpu_per_rs 42 --rs_per_host 1 --bind packed:42 ./vector_add_cpu
+ + jsrun -n 1 -a 1 -c 42 -r 1 --bind packed:42 ./vector_add_cpu
  The total memory allocated is 8192.000 MB.
  Time (s): 17.649502
  Success!
@@ -31,7 +31,7 @@
  ## Run the GPU code
 
  ```
- bash-4.2$ make 
+ bash-4.2$ make vector_add_gpu 
  xlc++ -O2 -qsmp=omp -qoffload vector_add_gpu.cpp -o vector_add_gpu
  bash-4.2$ ./run_vector_add_gpu.sh
  + jsrun -n 1 -a 1 -c 1 -g 1 ./vector_add_gpu
