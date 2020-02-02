@@ -1,5 +1,5 @@
 
-# OpenMP Offload 101
+ # OpenMP Offload 101
 
  This covers the three basic offloading concepts:
  transferring execution control, expressing parallelism, and 
@@ -11,7 +11,8 @@
  2. Expressing parallelism
  3. Mapping data
 
- bsub -W 2:00 -nnodes 1 -P TRN006 -Is $SHELL
+ `bsub -W 2:00 -nnodes 1 -P TRN006 -Is $SHELL`
+ 
 
  ## Offloading code to the device and getting device info
  ```
