@@ -12,7 +12,7 @@
  the memory footprint to be in main memory for both CPU and GPU.
  We expect the speedup of GPU to CPU code to be about 3x
  since a V100 has ~900 GB/s theoretical BW and 2 P9s have
- ~340 GB/s GB/s theoretical BW. 
+ ~340 GB/s theoretical BW. 
 
  ## Run the CPU code
 
