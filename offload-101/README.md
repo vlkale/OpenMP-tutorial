@@ -12,14 +12,13 @@
  3. Mapping data
 
  `bsub -W 2:00 -nnodes 1 -P TRN006 -Is $SHELL`
- 
 
  ## Offloading code to the device and getting device info
  ```
  make 01_target_construct
  jsrun -n 1 -a 1 -c 1 -g 1 ./01_target_construct
- jsrun -n 1 -a 1 -c 1 -g 6 ./01_target_construct
  module load cuda
+ jsrun -n 1 -a 1 -c 1 -g 1 nvidia-smi
  jsrun -n 1 -a 1 -c 1 -g 1 nvprof ./01_target_construct
  ```
  ## Expressing parallelism 
@@ -51,7 +50,6 @@
  jsrun -n 1 -a 1 -c 1 -g 1 ./03_map
  module load cuda 
  jsrun -n 1 -a 1 -c 1 -g 1 nvprof --print-gpu-trace ./03_map
- # do we need tofrom? try other mappings
 
  # slightly more complicated. we have multiple arrays, and
  # want to call daxpy on them. like good programmers, we
