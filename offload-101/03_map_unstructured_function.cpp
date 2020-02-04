@@ -24,7 +24,7 @@ int main( int argc, char** argv )
   double*   c = NULL;
   double scalar = 8.0;
   int num_errors = 0;
-  int num_elements = 2048;
+  int num_elements = 1024;
   
   a = (double *) malloc( sizeof(double)*num_elements );
   b = (double *) malloc( sizeof(double)*num_elements );

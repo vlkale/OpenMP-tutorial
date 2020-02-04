@@ -36,6 +36,11 @@
  jsrun -n 1 -a 1 -c 1 -g 1 ./02_target_teams_parallel
  ```
 
+ We checked that we could execute code on the device and
+ that we are spawning threads to be able to run in parallel
+ on the device. Let's move to a more complicated example
+ and talk about data transfer.
+
  ## Mapping data
 
  ```
