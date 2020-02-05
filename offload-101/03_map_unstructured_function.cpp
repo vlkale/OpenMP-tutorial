@@ -44,6 +44,8 @@ int main( int argc, char** argv )
   daxpy( c, a, scalar, num_elements );
 
 #pragma omp target exit data map(from:c[0:num_elements])
+#pragma omp target exit data map(release:a[0:num_elements])
+#pragma omp target exit data map(release:b[0:num_elements])
 
   // error checking
   for (size_t j=0; j<num_elements; j++) {
