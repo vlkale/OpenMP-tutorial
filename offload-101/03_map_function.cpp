@@ -5,8 +5,7 @@
 #include <omp.h>
 
 void daxpy( double * __restrict__ a, double * __restrict__ b,
-	    double scalar, int num_elements )
-{
+	    double scalar, int num_elements ) {
 
 #pragma omp target teams distribute parallel for simd map(tofrom:a[0:num_elements]) map(to:b[0:num_elements])
       for (size_t j=0; j<num_elements; j++) {
@@ -18,7 +17,6 @@ void daxpy( double * __restrict__ a, double * __restrict__ b,
 
 int main( int argc, char** argv )
 {
-
   double*   a = NULL;
   double*   b = NULL;
   double*   c = NULL;
@@ -31,8 +29,7 @@ int main( int argc, char** argv )
   c = (double *) malloc( sizeof(double)*num_elements );
 
   // initialize on the host
-for (size_t j=0; j<num_elements; j++)
-    {
+  for (size_t j=0; j<num_elements; j++) {
       a[j] = 0.0;
       c[j] = 0.0;
       b[j] = j;
