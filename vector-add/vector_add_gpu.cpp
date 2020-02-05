@@ -60,6 +60,9 @@ for (size_t j=0; j<ARRAY_SIZE; j++)
 	}
     }
 
+#pragma omp target exit data map(release:a[0:ARRAY_SIZE])
+#pragma omp target exit data map(release:b[0:ARRAY_SIZE])
+
   free(a);
   free(b);
 
