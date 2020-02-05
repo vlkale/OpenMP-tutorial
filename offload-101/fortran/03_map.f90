@@ -24,11 +24,11 @@ program main
   end do
 
 
-!$omp target teams distribute parallel do map(tofrom:a(1:num_elements)) map(to:b(1:num_elements))
+!$omp target teams distribute parallel do simd map(tofrom:a(1:num_elements)) map(to:b(1:num_elements))
     do i=1,num_elements
        a(j) = a(j)+scalar*b(j)
     end do
-!$omp end target teams distribute parallel do
+!$omp end target teams distribute parallel do simd
 
 
   ! error checking

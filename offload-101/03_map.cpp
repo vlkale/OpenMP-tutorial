@@ -24,7 +24,7 @@ for (size_t j=0; j<num_elements; j++)
     }
 
 //#pragma omp parallel for
-#pragma omp target teams distribute parallel for map(tofrom:a[0:num_elements]) map(to:b[0:num_elements])
+#pragma omp target teams distribute parallel for simd map(tofrom:a[0:num_elements]) map(to:b[0:num_elements])
       for (size_t j=0; j<num_elements; j++) {
         a[j] = a[j]+scalar*b[j];
       }
