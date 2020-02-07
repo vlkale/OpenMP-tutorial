@@ -11,11 +11,8 @@ program main
   num_errors = 0
   num_elements = 1024
 
-
   allocate (a(num_elements),stat=err)
   allocate (b(num_elements),stat=err)
-
-
 
   ! initialize on the host
   do j=1,num_elements
