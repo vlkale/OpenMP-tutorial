@@ -12,4 +12,4 @@ all : $(EXE)
 	$(CXX) $(CXXFLAGS) $(CXXOFFLOAD) $< -o $@
 
 clean:
-	rm -f $(EXE)
+	rm -f $(EXE) *.mod

@@ -21,7 +21,7 @@ program main
   end do
 
 
-!$omp target teams distribute parallel do simd map(tofrom:a(1:num_elements)) map(to:b(1:num_elements))
+!$omp target teams distribute parallel do simd map(tofrom:a) map(to:b)
     do i=1,num_elements
        a(j) = a(j)+scalar*b(j)
     end do
@@ -36,8 +36,8 @@ program main
 
   end do
 
-  deallocate(a);
-  deallocate(b);
+  deallocate(a)
+  deallocate(b)
 
   if(num_errors == 0) write(*,*) "Success!\n"
 

@@ -11,7 +11,7 @@
  2. Expressing parallelism
  3. Mapping data
 
- `bsub -W 2:00 -nnodes 1 -P TRN006 -Is $SHELL`
+ `bsub -W 2:00 -nnodes 1 -P GEN155 -Is $SHELL`
 
  ## Offloading code to the device and getting device info
  ```
