@@ -1,5 +1,5 @@
 program main
-
+  implicit none
   double precision, allocatable :: a(:) 
   double precision, allocatable :: b(:) 
   double precision  scalar

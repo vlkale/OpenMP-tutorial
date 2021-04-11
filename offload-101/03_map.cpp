@@ -17,24 +17,24 @@ int main( int argc, char** argv )
   b = (double *) malloc( sizeof(double)*num_elements );
 
   // initialize on the host
-for (size_t j=0; j<num_elements; j++)
+  for (size_t j=0; j<num_elements; j++)
     {
       a[j] = 0.0;
       b[j] = j;
     }
 
-//#pragma omp parallel for
-#pragma omp target teams distribute parallel for simd map(tofrom:a[0:num_elements]) map(to:b[0:num_elements])
-      for (size_t j=0; j<num_elements; j++) {
-        a[j] = a[j]+scalar*b[j];
-      }
+  //#pragma omp parallel for
+  #pragma omp target teams distribute parallel for simd map(tofrom:a[:num_elements]) map(to:b[:num_elements])
+  for (size_t j=0; j<num_elements; j++) {
+    a[j] += scalar*b[j];
+  }
 
   // error checking
   for (size_t j=0; j<num_elements; j++) {
-      if( fabs(a[j] - (double)j*scalar) > 0.000001  ) {
-	  num_errors++;
-	}
+    if( fabs(a[j] - (double)j*scalar) > 0.000001  ) {
+      num_errors++;
     }
+  }
 
   free(a);
   free(b);

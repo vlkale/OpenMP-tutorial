@@ -17,9 +17,9 @@
  ```
  make 01_target_construct
  jsrun -n 1 -a 1 -g 1 ./01_target_construct
- module load cuda
+ module load nsight-systems/2020.5.1.85
  jsrun -n 1 -a 1 -g 1 nvidia-smi
- jsrun -n 1 -a 1 -g 1 nvprof ./01_target_construct
+ jsrun -n 1 -a 1 -g 1 nsys nvprof ./01_target_construct
  ```
  ## Expressing parallelism 
 
@@ -53,8 +53,8 @@
  # we want to map arrays a and b to the device, compute on the
  # device, and then map the arrays back.
  jsrun -n 1 -a 1 -g 1 ./03_map
- module load cuda 
- jsrun -n 1 -a 1 -g 1 nvprof --print-gpu-trace ./03_map
+ module load nsight-systems/2020.5.1.85
+ jsrun -n 1 -a 1 -g 1 nsys nvprof --print-gpu-trace ./03_map
 
  # slightly more complicated. we have multiple arrays, and
  # want to call daxpy on them. like good programmers, we
