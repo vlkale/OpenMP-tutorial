@@ -3,7 +3,7 @@ program main
   double precision, allocatable :: a(:) 
   double precision, allocatable :: b(:) 
   double precision  scalar
-  integer err
+  integer err, i, j
   integer num_errors
   integer num_elements
 

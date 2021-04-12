@@ -53,7 +53,7 @@ program main
 
   ! error checking
   do j=1,num_elements
-     if( a(j) - j*scalar*scalar .gt. 0.000001 ) then
+     if( c(j) - j*scalar*scalar .gt. 0.000001 ) then
         num_errors = num_errors + 1
      end if
 

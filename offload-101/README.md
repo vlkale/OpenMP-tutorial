@@ -61,11 +61,11 @@
  # pull the code into a routine for reuse.
  make 03_map_function
  jsrun -n 1 -a 1 -g 1 ./03_map_function
- jsrun -n 1 -a 1 -g 1 nvprof --print-gpu-trace ./03_map_function
+ jsrun -n 1 -a 1 -g 1 nsys nvprof --print-gpu-trace ./03_map_function
  # lots of data transfer. do we need this much?
 
  # unstructured data mapping
  make 03_map_unstructured_function
  jsrun -n 1 -a 1 -g 1 ./03_map_unstructured_function
- jsrun -n 1 -a 1 -g 1 nvprof --print-gpu-trace ./03_map_unstructured_function
+ jsrun -n 1 -a 1 -g 1 nsys nvprof --print-gpu-trace ./03_map_unstructured_function
  ```
