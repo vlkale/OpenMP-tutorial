@@ -1,2 +1,2 @@
 # OpenMP-tutorial
-Repository for files for OpenMP tutorial at the 2020 and 2021 ECP Annual Meetings
+Repository for files for OpenMP tutorial at the 2020, 2021, and 2022 ECP Annual Meetings
