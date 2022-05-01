@@ -11,13 +11,13 @@
  2. Expressing parallelism
  3. Mapping data
 
- `bsub -W 2:00 -nnodes 1 -P GEN155 -Is $SHELL`
+ `bsub -W 2:00 -nnodes 1 -P GEN180 -Is $SHELL`
 
  ## Offloading code to the device and getting device info
  ```
  make 01_target_construct
  jsrun -n 1 -a 1 -g 1 ./01_target_construct
- module load nsight-systems/2020.5.1.85
+ module load nsight-systems
  jsrun -n 1 -a 1 -g 1 nvidia-smi
  jsrun -n 1 -a 1 -g 1 nsys nvprof ./01_target_construct
  ```
