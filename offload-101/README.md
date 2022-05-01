@@ -53,7 +53,7 @@
  # we want to map arrays a and b to the device, compute on the
  # device, and then map the arrays back.
  jsrun -n 1 -a 1 -g 1 ./03_map
- module load nsight-systems/2020.5.1.85
+ module load nsight-systems
  jsrun -n 1 -a 1 -g 1 nsys nvprof --print-gpu-trace ./03_map
 
  # slightly more complicated. we have multiple arrays, and
